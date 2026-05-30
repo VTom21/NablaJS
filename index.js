@@ -78,3 +78,12 @@ console.log(Nabla.coprime(14,16));
 console.log(Nabla.summation(11));
 
 console.log(Nabla.Matrix_Divide([[1,2], [3,4]], [[5,6], [7,8]]));
+console.log(Nabla.Cross_Product([[2],[3],[4]], [[5],[6],[7]]));
+
+console.log(Nabla.SinH(4));
+console.log(Nabla.CosH(4));
+console.log(Nabla.TanH(4));
+
+console.log(Nabla.Euclidean_Distance(1,2,3,4));
+console.log(Nabla.Manhattan_Distance(1,2,3,4));
+console.log(Nabla.Cosine_Similarity([[1,1]], [[2,0]]));

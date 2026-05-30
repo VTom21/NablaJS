@@ -46,4 +46,11 @@ export function Matrix_Divide(a, b) {
     }
     return array;
 }
+export function Cross_Product(a, b) {
+    return [
+        [a[1][0] * b[2][0] - a[2][0] * b[1][0]],
+        [a[2][0] * b[0][0] - a[0][0] * b[2][0]],
+        [a[0][0] * b[1][0] - a[1][0] * b[0][0]]
+    ];
+}
 //# sourceMappingURL=l.js.map

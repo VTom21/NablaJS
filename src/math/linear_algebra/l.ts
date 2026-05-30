@@ -62,3 +62,12 @@ export function Matrix_Divide(a: number[][], b: number[][]): number[][] {
 
     return array;
 }
+
+export function Cross_Product(a: number[][], b: number[][]): number[][] {
+    return [
+        [a[1]![0]! * b[2]![0]! - a[2]![0]! * b[1]![0]!],  
+        [a[2]![0]! * b[0]![0]! - a[0]![0]! * b[2]![0]!],  
+        [a[0]![0]! * b[1]![0]! - a[1]![0]! * b[0]![0]!]   
+    ];
+}
+

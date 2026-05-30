@@ -154,4 +154,16 @@ export function BERNSTEIN(digits = 6) {
     }
     return parseFloat(value);
 }
+export function E(digits = 6) {
+    const bernstein = "2.718281828459045";
+    let value = "";
+    let counter = 0;
+    for (var i = 0; counter < digits; i++) {
+        if (bernstein[i] !== ".") {
+            counter++;
+        }
+        value += bernstein[i];
+    }
+    return parseFloat(value);
+}
 //# sourceMappingURL=c.js.map

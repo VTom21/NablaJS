@@ -4,4 +4,10 @@ export declare function Tan(n: number): number;
 export declare function Cot(n: number): number;
 export declare function Sec(n: number): number;
 export declare function Csc(n: number): number;
+export declare function SinH(n: number): number;
+export declare function CosH(n: number): number;
+export declare function TanH(n: number): number;
+export declare function CotH(n: number): number;
+export declare function SecH(n: number): number;
+export declare function CscH(n: number): number;
 //# sourceMappingURL=t.d.ts.map

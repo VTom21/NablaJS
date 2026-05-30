@@ -11,4 +11,5 @@ export declare function GAUSS(digits?: number): number;
 export declare function CATALAN(digits?: number): number;
 export declare function STEPHENS(digits?: number): number;
 export declare function BERNSTEIN(digits?: number): number;
+export declare function E(digits?: number): number;
 //# sourceMappingURL=c.d.ts.map
