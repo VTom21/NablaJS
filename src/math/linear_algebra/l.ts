@@ -92,3 +92,7 @@ export function Cramer_Rule(a1: number, b1: number, c1: number,a2: number, b2: n
     return [x, y];
 }
 
+export function lerp(a:number, b:number, t:number){
+    return a + (b - a) * t;
+}
+

@@ -20,7 +20,6 @@ export declare function root(a: number | Term): number | {
     symbol: string;
     full: string;
 };
-export declare function rootBy(a: number, value: number): number;
 export declare function increment(a: number): number;
 export declare function decrement(a: number): number;
 export declare function incrementBy(a: number, value: number): number;

@@ -67,4 +67,7 @@ export function Cramer_Rule(a1, b1, c1, a2, b2, c2) {
     const y = (a1 * c2 - a2 * c1) / D;
     return [x, y];
 }
+export function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
 //# sourceMappingURL=l.js.map

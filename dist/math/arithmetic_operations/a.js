@@ -98,9 +98,6 @@ export function root(a) {
         full: `√${a.coefficient}${a.symbol}`
     };
 }
-export function rootBy(a, value) {
-    return Math.pow(a, value);
-}
 export function increment(a) {
     return a += 1;
 }
@@ -114,7 +111,7 @@ export function decrementBy(a, value) {
     return a -= value;
 }
 export function modulus(value) {
-    return value * (-1);
+    return Math.abs(value);
 }
 export function log(value) {
     return Math.log10(value);

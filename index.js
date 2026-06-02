@@ -34,7 +34,6 @@ console.log(Nabla.factorial(6));
 console.log(Nabla.isPrime(17));
 
 console.log(Nabla.percentage(50,110));
-console.log(Nabla.rootBy(3, 6));
 
 console.log(Nabla.IsOdd(25607));
 console.log(Nabla.triangular(5));
@@ -115,3 +114,13 @@ var variable = Nabla.power(x1, 1/2);
 console.log(Nabla.integrate({coefficient: 1, symbol:"x", power: {numerator:1, denominator:2}}).full);
 console.log(Nabla.derivative({coefficient:3, symbol:"x", power: Nabla.single(2)}).full);
 
+console.log(Nabla.updateVelocity2D(3, 0, 20, 0, 10));
+
+console.log(Nabla.lerp(0,100,0.5));
+
+console.log(Nabla.scale(10,3));
+console.log(Nabla.vector_scale([3,4], 3));
+console.log(Nabla.randVector2D());
+console.log(Nabla.randVector3D());
+console.log(Nabla.randVector2D(3, 10));
+console.log(Nabla.randWeight(80));
