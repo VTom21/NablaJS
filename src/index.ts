@@ -11,3 +11,4 @@ export {Euclidean_Distance, Manhattan_Distance, Cosine_Similarity, Chessboard_Di
 export {clamp} from "./math/other/o.js"
 export {Pythagorean, midpoint, discriminant, quadratic, slope} from "./math/algebra/a.js"
 export {Symbols, parse, substitute} from "./math/symbols/s.js"
+export {integrate, single, derivative} from "./math/calculus/c.js"

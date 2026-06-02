@@ -112,6 +112,6 @@ console.log(Nabla.power(x1, 1).power)
 
 var variable = Nabla.power(x1, 1/2);
 
-console.log(Nabla.integrate(variable.base, variable.power, variable.symbol).full);
-
+console.log(Nabla.integrate({coefficient: 1, symbol:"x", power: {numerator:1, denominator:2}}).full);
+console.log(Nabla.derivative({coefficient:3, symbol:"x", power: Nabla.single(2)}).full);
 
