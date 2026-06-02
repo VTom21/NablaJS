@@ -18,3 +18,11 @@ export function Cosine_Similarity(a: number[][], b: number[][]): number {
 
     return dot / (magA * magB);
 }
+
+export function Chessboard_Distance(x1:number, x2:number, y1:number, y2:number){
+    let x = Math.abs(x1 - y1);
+    let y = Math.abs(x2 - y2);
+
+    return x > y ? x : y;
+
+}

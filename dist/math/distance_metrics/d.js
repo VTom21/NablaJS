@@ -11,4 +11,9 @@ export function Cosine_Similarity(a, b) {
     const magB = Math.sqrt(b.flat().reduce((sum, x) => sum + x * x, 0));
     return dot / (magA * magB);
 }
+export function Chessboard_Distance(x1, x2, y1, y2) {
+    let x = Math.abs(x1 - y1);
+    let y = Math.abs(x2 - y2);
+    return x > y ? x : y;
+}
 //# sourceMappingURL=d.js.map

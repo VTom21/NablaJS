@@ -48,3 +48,15 @@ export function coprime(a: number, b: number){
 export function summation(n : number){
     return (n * (n + 1)) / 2
 }
+
+
+export function signum(x: number): number{
+    if(x > 0){
+        return 1
+    }
+    if(x == 0){
+        return 0
+    }
+    return -1;
+}
+

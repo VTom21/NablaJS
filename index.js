@@ -78,7 +78,7 @@ console.log(Nabla.coprime(14,16));
 console.log(Nabla.summation(11));
 
 console.log(Nabla.Matrix_Divide([[1,2], [3,4]], [[5,6], [7,8]]));
-console.log(Nabla.Cross_Product([[2],[3],[4]], [[5],[6],[7]]));
+console.log(Nabla.Cross_Product([[1],[2],[3]], [[4],[5],[6]]));
 
 console.log(Nabla.SinH(4));
 console.log(Nabla.CosH(4));
@@ -87,3 +87,15 @@ console.log(Nabla.TanH(4));
 console.log(Nabla.Euclidean_Distance(1,2,3,4));
 console.log(Nabla.Manhattan_Distance(1,2,3,4));
 console.log(Nabla.Cosine_Similarity([[1,1]], [[2,0]]));
+
+console.log(Nabla.clamp(4, 5, 20));
+console.log(Nabla.signum(-11));
+
+console.log(Nabla.Pythagorean(0, 3, 8));
+
+console.log(Nabla.midpoint(0,10,0,20));
+
+console.log(Nabla.quadratic(2, 5, -3));
+
+console.log(Nabla.point_line(3, -2, 3, -4, 5));
+console.log(Nabla.Cramer_Rule(2, 1, 5, 1, -1, 1))

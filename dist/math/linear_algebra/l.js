@@ -53,4 +53,18 @@ export function Cross_Product(a, b) {
         [a[0][0] * b[1][0] - a[1][0] * b[0][0]]
     ];
 }
+export function magnitude(x, y) {
+    return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+}
+export function point_line(x, y, A, B, C) {
+    let top = (A * x) + (B * y) + C;
+    let bottom = Math.sqrt(Math.pow(A, 2) + Math.pow(B, 2));
+    return top / bottom;
+}
+export function Cramer_Rule(a1, b1, c1, a2, b2, c2) {
+    const D = a1 * b2 - a2 * b1;
+    const x = (c1 * b2 - c2 * b1) / D;
+    const y = (a1 * c2 - a2 * c1) / D;
+    return [x, y];
+}
 //# sourceMappingURL=l.js.map

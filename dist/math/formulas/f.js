@@ -38,4 +38,13 @@ export function coprime(a, b) {
 export function summation(n) {
     return (n * (n + 1)) / 2;
 }
+export function signum(x) {
+    if (x > 0) {
+        return 1;
+    }
+    if (x == 0) {
+        return 0;
+    }
+    return -1;
+}
 //# sourceMappingURL=f.js.map
