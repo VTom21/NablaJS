@@ -99,3 +99,19 @@ console.log(Nabla.quadratic(2, 5, -3));
 
 console.log(Nabla.point_line(3, -2, 3, -4, 5));
 console.log(Nabla.Cramer_Rule(2, 1, 5, 1, -1, 1))
+
+const [x] = Nabla.Symbols(13, "x", 10);
+const [x1] = Nabla.Symbols(6,"x", 10);
+
+
+console.log(Nabla.add(6, x.coefficient));
+console.log(Nabla.add(x.coefficient, x1.coefficient));
+
+console.log(Nabla.root(x));
+console.log(Nabla.power(x1, 1).power)
+
+var variable = Nabla.power(x1, 1/2);
+
+console.log(Nabla.integrate(variable.base, variable.power, variable.symbol).full);
+
+

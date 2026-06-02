@@ -1,9 +1,25 @@
-export declare function add(a: number, b: number): number;
-export declare function subtract(a: number, b: number): number;
-export declare function multiply(a: number, b: number): number;
-export declare function divide(a: number, b: number): number;
-export declare function power(a: number, b: number): number;
-export declare function root(a: number): number;
+import { Term } from "../symbols/s.js";
+export declare function add(a: Term | number, b: Term | number): string | number;
+export declare function subtract(a: Term | number, b: Term | number): string | number;
+export declare function multiply(a: Term | number, b: Term | number): string | number;
+export declare function divide(a: Term | number, b: Term | number): string | number;
+export declare function power(a: Term | number, b: Term | number): string | number | {
+    symbol: string;
+    base: number;
+    power: number;
+    full: string;
+} | {
+    base: number | Term;
+    power: number | Term;
+    full: string;
+    symbol?: never;
+};
+export declare function root(a: number | Term): number | {
+    kind: string;
+    coefficient: number;
+    symbol: string;
+    full: string;
+};
 export declare function rootBy(a: number, value: number): number;
 export declare function increment(a: number): number;
 export declare function decrement(a: number): number;

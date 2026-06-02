@@ -10,3 +10,4 @@ export {Dot_Product,Cross_Product, Matrix_Add,Matrix_Subtract, Matrix_Divide, ma
 export {Euclidean_Distance, Manhattan_Distance, Cosine_Similarity, Chessboard_Distance} from "./math/distance_metrics/d.js"
 export {clamp} from "./math/other/o.js"
 export {Pythagorean, midpoint, discriminant, quadratic, slope} from "./math/algebra/a.js"
+export {Symbols, parse, substitute} from "./math/symbols/s.js"
