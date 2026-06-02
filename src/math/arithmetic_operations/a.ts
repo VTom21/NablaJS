@@ -145,9 +145,6 @@ export function root(a: number | Term){
     }
 }
 
-export function rootBy(a: number, value: number) : number{
-    return Math.pow(a, value);
-}
 
 export function increment(a: number) : number {
     return a += 1;
@@ -166,7 +163,7 @@ export function decrementBy(a: number, value: number) : number {
 }
 
 export function modulus(value: number) : number{
-    return value * (-1);
+    return Math.abs(value);
 }
 
 export function log(value: number) : number{
