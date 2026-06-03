@@ -135,3 +135,5 @@ console.log(Nabla.Digamma(6));
 console.log(Nabla.Trigamma(3));
 console.log(Nabla.Basel_Series(4));
 console.log(Nabla.Padovan_Sequence(0))
+
+console.log(Nabla.Cosine_Law(10,11,12,0,0,0));

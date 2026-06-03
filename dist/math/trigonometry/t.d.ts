@@ -10,4 +10,9 @@ export declare function TanH(n: number): number;
 export declare function CotH(n: number): number;
 export declare function SecH(n: number): number;
 export declare function CscH(n: number): number;
+export declare function Cosine_Law(a?: number, b?: number, c?: number, alpha?: number, beta?: number, gamma?: number): number | {
+    alpha: number;
+    beta: number;
+    gamma: number;
+} | undefined;
 //# sourceMappingURL=t.d.ts.map
