@@ -124,3 +124,14 @@ console.log(Nabla.randVector2D());
 console.log(Nabla.randVector3D());
 console.log(Nabla.randVector2D(3, 10));
 console.log(Nabla.randWeight(80));
+
+console.log(Nabla.Catalan_Series(14));
+console.log(Nabla.Harmonic_Series(5));
+
+console.log(Nabla.Geometric_Series(2, 3, 4));
+
+console.log(Nabla.Gamma(2.5))
+console.log(Nabla.Digamma(6));
+console.log(Nabla.Trigamma(3));
+console.log(Nabla.Basel_Series(4));
+console.log(Nabla.Padovan_Sequence(0))

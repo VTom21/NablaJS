@@ -62,4 +62,21 @@ export function derivative(term) {
         full
     };
 }
+export function Gamma(n) {
+    if (n === 1)
+        return 1;
+    if (n === 0.5)
+        return Math.sqrt(Math.PI);
+    return (n - 1) * Gamma(n - 1);
+}
+export function Digamma(n) {
+    if (n === 1)
+        return -0.5772156649;
+    return Digamma(n - 1) + 1 / (n - 1);
+}
+export function Trigamma(n) {
+    if (n === 1)
+        return Math.PI ** 2 / 6;
+    return Trigamma(n - 1) - 1 / (n - 1) ** 2;
+}
 //# sourceMappingURL=c.js.map
