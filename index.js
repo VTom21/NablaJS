@@ -1,4 +1,5 @@
-import * as Nabla from "./dist/index.js"
+import * as Nabla from "./dist/index.js";
+import {Units} from "./dist/plugins.js";
 
 
 console.log(Nabla.IsGreater(5, 2));
@@ -137,3 +138,8 @@ console.log(Nabla.Basel_Series(4));
 console.log(Nabla.Padovan_Sequence(0))
 
 console.log(Nabla.Cosine_Law(10,11,12,0,0,0));
+
+const unit = Units();
+const convert = unit.createConverter(unit.length);
+
+console.log(convert(1, "m", "cm")); // 100 cm

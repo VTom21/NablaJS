@@ -1,6 +1,6 @@
 //Two-dimensional shapes
 
-export function Square(){
+export function Square(){ 
     function area(a: number){
         return a * a;        
     }

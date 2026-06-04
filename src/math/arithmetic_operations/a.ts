@@ -100,6 +100,7 @@ export function divide(a : Term | number , b : Term | number) {
     return `${left.coefficient}${left.symbol} / ${right.coefficient}${right.symbol}`
 }
 
+
 export function power(a : Term | number , b : Term | number) {
     const left = typeof a === "number" ? { kind: "term", coefficient: a, symbol: "" } : a;
 

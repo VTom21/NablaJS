@@ -61,6 +61,7 @@ export function percentage(value: number, total: number){
     return ((value / total) * 100).toFixed(2)
 }
 
+
 export function range(min: number, max: number): number{
     return max - min
 }
