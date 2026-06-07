@@ -9,5 +9,12 @@ export declare function Units(nabla: any): {
     volume: Record<string, Unit>;
     area: Record<string, Unit>;
     temperature: Record<string, Unit>;
+    pressure: Record<string, Unit>;
+    angles: Record<string, Unit>;
+    illuminance: Record<string, Unit>;
+    time: Record<string, Unit>;
+    charge: Record<string, Unit>;
+    resistance: Record<string, Unit>;
+    magnetic_flux: Record<string, Unit>;
 };
 //# sourceMappingURL=plugins.d.ts.map

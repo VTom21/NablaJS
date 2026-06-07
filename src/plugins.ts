@@ -93,6 +93,107 @@ export function Units(nabla: any) {
     reaumur:  { to: v => (v * 5) / 4, from: v => (v * 4) / 5 }, 
   }
 
+  const pressure: Record<string, Unit> = {
+    pascal: { to: v => v, from: v => v },
+    kilopascal: { to: v => v * 1000, from: v => v / 1000 },
+    bar: { to: v => v * 100000, from: v => v / 100000 },
+    psi: { to: v => v * 6894.7572931783, from: v => v / 6894.7572931783 },
+    ksi: { to: v => v * 6894757.2931783, from: v => v / 6894757.2931783 },
+    atm: { to: v => v * 101325, from: v => v / 101325 },
+    microbar: { to: v => v / 0.1, from: v => v * 0.1 },
+    millibar: { to: v => v * 100, from: v => v / 100 },
+    exapascal: { to: v => v * 1.0E+18, from: v => v / 1.0E+18 },
+    petapascal: { to: v => v * 1.0E+15, from: v => v / 1.0E+15 },
+    terapascal: { to: v => v * 1000000000000, from: v => v / 1000000000000 },
+    gigapascal: { to: v => v * 1000000000, from: v => v / 1000000000 },
+    megapascal: { to: v => v * 1000000, from: v => v / 1000000 },
+    hectopascal: { to: v => v * 100, from: v => v / 100 },
+    decipascal: { to: v => v * 0.1, from: v => v / 0.1 },
+    centipascal: { to: v => v * 0.01, from: v => v / 0.01 },
+    millipascal: { to: v => v * 0.001, from: v => v / 0.001 },
+    micropascal: { to: v => v * 1.0E-6, from: v => v / 1.0E-6 },
+    nanopascal: { to: v => v * 1.0E-9, from: v => v / 1.0E-9 },
+    femtopascal: { to: v => v * 1.0E-15, from: v => v / 1.0E-15 },
+  }
+
+  const angles: Record<string, Unit> = {
+    degree: { to: v => v, from: v => v },
+    radian: { to: v => v * 57.2957795131, from: v => v / 57.2957795131 },
+    gradian: { to: v => v * 0.9, from: v => v / 0.9 },
+    mil: { to: v => v * 0.05625, from: v => v / 0.05625 },
+    quadrant: { to: v => v * 90, from: v => v / 90 },
+    sextant: { to: v => v * 60, from: v => v / 60 },
+  }
+
+  const illuminance: Record<string, Unit> = {
+    lux: { to: v => v, from: v => v },
+    mc: { to: v => v * 1, from: v => v / 1 },
+    cmc: { to: v => v * 10000, from: v => v / 10000 },
+    fc: { to: v => v * 10.7639104167, from: v => v / 10.7639104167 },
+    phot: { to: v => v * 10000, from: v => v / 10000 },
+    nox: { to: v => v * 0.001, from: v => v / 0.001 },
+    flame: { to: v => v * 43.0556416668, from: v => v / 43.0556416668 },
+  }
+
+  const time:  Record<string, Unit> = {
+    sec: { to: v => v, from: v => v },
+    min: { to: v => v * 60, from: v => v / 60 },
+    hour: { to: v => v * 3600, from: v => v / 3600 },
+    day: { to: v => v * 86400, from: v => v / 86400 },
+    week: { to: v => v * 604800, from: v => v / 604800 },
+    month: { to: v => v * 2628000, from: v => v / 2628000 },
+    year: { to: v => v * 31557600, from: v => v / 31557600 },
+    century: { to: v => v * 3155760000, from: v => v / 3155760000 },
+    decade: { to: v => v * 315576000, from: v => v / 315576000 },
+    millenium: { to: v => v * 31557600000, from: v => v / 31557600000 },
+    microsec: { to: v => v * 1.0E-6, from: v => v / 1.0E-6 },
+    nanosec: { to: v => v * 1.0E-9, from: v => v / 1.0E-9 },
+    picosec: { to: v => v * 1.0E-12, from: v => v / 1.0E-12 },
+    femtosec: { to: v => v * 1.0E-15, from: v => v / 1.0E-15 },
+    leap_year: { to: v => v * 31622400, from: v => v / 31622400 },
+    fortnight: { to: v => v * 1209600, from: v => v / 1209600 },
+    septennial: { to: v => v * 220752000, from: v => v / 220752000 },
+    novennial: { to: v => v *  283824000, from: v => v / 283824000 },
+  }
+
+  const charge: Record<string, Unit> = {
+    coulomb: { to: v => v, from: v => v },
+    megacoulomb: { to: v => v * 1000000, from: v => v / 1000000 },
+    kilocoulomb: { to: v => v * 1000 , from: v => v / 1000  },
+    millicoulomb: { to: v => v * 0.001 , from: v => v / 0.001  },
+    microcoulomb: { to: v => v * 1.0E-6 , from: v => v / 1.0E-6  },
+    nanocoulomb: { to: v => v * 1.0E-9 , from: v => v / 1.0E-9  },
+    picocoulomb: { to: v => v * 1.0E-12 , from: v => v / 1.0E-12  },
+    emu: { to: v => v * 10 , from: v => v / 10  },
+    esu: { to: v => v * 3.335640951982E-10 , from: v => v / 3.335640951982E-10 },
+    franklin: { to: v => v * 3.335640951982E-10 , from: v => v / 3.335640951982E-10  },
+    faraday: { to: v => v * 96485.309000004 , from: v => v / 96485.309000004  },
+    ampere_sec: { to: v => v * 1 , from: v => v / 1  },
+    ampere_min: { to: v => v * 60 , from: v => v / 60  },
+    ampere_hour: { to: v => v * 3600  , from: v => v / 3600  },
+  } 
+
+  const resistance: Record<string, Unit> = {
+    ohm: { to: v => v, from: v => v },
+    megohm: { to: v => v * 1000000, from: v => v / 1000000 },
+    microhm: { to: v => v * 1.0E-6, from: v => v / 1.0E-6 },
+    volt_ampere: { to: v => v * 1, from: v => v * 1 },
+    emu: { to: v => v * 1.0E-9, from: v => v / 1.0E-9 },
+    esu: { to: v => v * 898755200000, from: v => v / 898755200000 },
+  }
+
+  const magnetic_flux: Record<string, Unit> = {
+    weber: { to: v => v, from: v => v },
+    milliweber: { to: v => v * 0.001, from: v => v / 0.001 },
+    microweber: { to: v => v * 1.0E-6, from: v => v / 1.0E-6 },
+    volt_second: { to: v => v * 1, from: v => v * 1 },
+    megaline: { to: v => v * 0.01, from: v => v / 0.01 },
+    kiloline: { to: v => v * 1.0E-5, from: v => v / 1.0E-5 },
+    line: { to: v => v * 1.0E-8, from: v => v / 1.0E-8 },
+    maxwell: { to: v => v * 1.0E-8, from: v => v / 1.0E-8 },
+    unit_pole: { to: v => v * 1.256637061436E-7, from: v => v / 1.256637061436E-7 },
+  }
+
   function createConverter(defs: Record<string, Unit>) {
     return function convert(value: number, from: string, to: string): number {
       const fromUnit = defs[from];
@@ -106,5 +207,5 @@ export function Units(nabla: any) {
     };
   }
 
-  return {createConverter, length, mass, volume, area, temperature}
+  return {createConverter, length, mass, volume, area, temperature, pressure, angles, illuminance, time, charge, resistance, magnetic_flux}
 }

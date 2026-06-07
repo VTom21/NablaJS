@@ -140,6 +140,6 @@ console.log(Nabla.Padovan_Sequence(0))
 console.log(Nabla.Cosine_Law(10,11,12,0,0,0));
 
 const unit = Units();
-const convert = unit.createConverter(unit.length);
+const convert = unit.createConverter(unit.magnetic_flux);
 
-console.log(convert(1, "m", "cm")); // 100 cm
+console.log(convert(1, "weber", "maxwell")); // 100 cm
