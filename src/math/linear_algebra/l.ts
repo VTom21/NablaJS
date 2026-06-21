@@ -1,3 +1,20 @@
+/**
+ * Performs matrix multiplication (dot product) between two matrices.
+ *
+ * @param a - Left matrix (m × n).
+ * @param b - Right matrix (n × p).
+ * @returns Resulting matrix (m × p).
+ *
+ * @remarks
+ * This implementation assumes valid matrix dimensions. No runtime checks are
+ * performed for mismatched shapes, so invalid inputs may produce runtime errors.
+ *
+ * @example
+ * ```ts
+ * Dot_Product([[1, 2]], [[3], [4]]); // [[11]]
+ * ```
+ */
+
 export function Dot_Product(a: number[][], b:number[][]) : number[][] {
 
     
@@ -19,7 +36,21 @@ export function Dot_Product(a: number[][], b:number[][]) : number[][] {
     return array;
 }
 
-
+/**
+ * Adds two matrices element-wise.
+ *
+ * @param a - First matrix.
+ * @param b - Second matrix.
+ * @returns Sum of matrices a and b.
+ *
+ * @remarks
+ * Assumes both matrices have identical dimensions. No validation is performed.
+ *
+ * @example
+ * ```ts
+ * Matrix_Add([[1,2]], [[3,4]]); // [[4,6]]
+ * ```
+ */
 
 export function Matrix_Add(a: number[][], b: number[][]): number[][] {
     const array: number[][] = [];
@@ -35,6 +66,17 @@ export function Matrix_Add(a: number[][], b: number[][]): number[][] {
     return array;
 }
 
+/**
+ * Subtracts one matrix from another element-wise.
+ *
+ * @param a - First matrix.
+ * @param b - Second matrix.
+ * @returns Resulting matrix (a - b).
+ *
+ * @remarks
+ * Assumes identical matrix dimensions.
+ */
+
 export function Matrix_Subtract(a: number[][], b: number[][]): number[][] {
     const array: number[][] = [];
 
@@ -48,6 +90,17 @@ export function Matrix_Subtract(a: number[][], b: number[][]): number[][] {
 
     return array;
 }
+
+/**
+ * Divides two matrices element-wise.
+ *
+ * @param a - Numerator matrix.
+ * @param b - Denominator matrix.
+ * @returns Element-wise division result.
+ *
+ * @remarks
+ * No zero-division checks are performed. Undefined or Infinity values may occur.
+ */
 
 export function Matrix_Divide(a: number[][], b: number[][]): number[][] {
     const array: number[][] = [];
@@ -63,6 +116,16 @@ export function Matrix_Divide(a: number[][], b: number[][]): number[][] {
     return array;
 }
 
+/**
+ * Computes the 3D cross product of two vectors.
+ *
+ * @param a - First vector (3×1 matrix form).
+ * @param b - Second vector (3×1 matrix form).
+ * @returns Cross product vector as a 3×1 matrix.
+ *
+ * @remarks
+ * Expects both inputs to be 3D column vectors.
+ */
 
 export function Cross_Product(a: number[][], b: number[][]): number[][] {
     return [
@@ -72,9 +135,28 @@ export function Cross_Product(a: number[][], b: number[][]): number[][] {
     ];
 }
 
+/**
+ * Computes the Euclidean magnitude of a 2D vector.
+ *
+ * @param x - X component.
+ * @param y - Y component.
+ * @returns Vector magnitude √(x² + y²).
+ */
+
 export function magnitude(x:number, y:number){
     return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 }
+
+/**
+ * Computes the signed distance from a point to a line.
+ *
+ * @param x - Point x-coordinate.
+ * @param y - Point y-coordinate.
+ * @param A - Line coefficient A.
+ * @param B - Line coefficient B.
+ * @param C - Line coefficient C.
+ * @returns Signed distance from point to line Ax + By + C = 0.
+ */
 
 export function point_line(x: number, y:number, A:number, B:number, C:number){
     let top = (A * x) + (B * y) + C
@@ -82,6 +164,22 @@ export function point_line(x: number, y:number, A:number, B:number, C:number){
 
     return top / bottom
 }
+
+/**
+ * Solves a 2×2 linear system using Cramer's Rule.
+ *
+ * @param a1 - Coefficient of x in equation 1.
+ * @param b1 - Coefficient of y in equation 1.
+ * @param c1 - Constant in equation 1.
+ * @param a2 - Coefficient of x in equation 2.
+ * @param b2 - Coefficient of y in equation 2.
+ * @param c2 - Constant in equation 2.
+ * @returns A tuple [x, y] representing the solution.
+ *
+ * @remarks
+ * Assumes the determinant is non-zero. Division by zero will occur if the
+ * system has no unique solution.
+ */
 
 export function Cramer_Rule(a1: number, b1: number, c1: number,a2: number, b2: number, c2: number): [number, number] {
 
@@ -92,7 +190,33 @@ export function Cramer_Rule(a1: number, b1: number, c1: number,a2: number, b2: n
     return [x, y];
 }
 
+/**
+ * Performs linear interpolation between two values.
+ *
+ * @param a - Start value.
+ * @param b - End value.
+ * @param t - Interpolation factor (0 to 1).
+ * @returns Interpolated value.
+ *
+ * @remarks
+ * When t = 0 returns a, when t = 1 returns b.
+ */
+
 export function lerp(a:number, b:number, t:number){
     return a + (b - a) * t;
+}
+
+export function toPolar(x:number, y:number){
+    let r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    let theta = Math.atan2(y, x) * (180 / Math.PI);
+
+    return {r,theta}
+}
+
+export function fromPolar(r: number, theta: number){
+    let x = r * Math.cos(theta * (Math.PI / 180));
+    let y = r * Math.sin(theta * (Math.PI / 180));
+    
+    return {x, y}
 }
 

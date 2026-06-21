@@ -1,9 +1,34 @@
+/**
+ * Checks whether a number is positive.
+ *
+ * @param a - The number to test.
+ * @returns `true` if a > 0, otherwise `false`.
+ *
+ * @example
+ * ```ts
+ * IsPositive(5); // true
+ * IsPositive(-1); // false
+ * ```
+ */
+
 export function IsPositive(a: number) : boolean{
     if(a > 0){
         return true;
     }
     return false;
 }
+
+/**
+ * Checks whether a number is negative.
+ *
+ * @param a - The number to test.
+ * @returns `true` if a < 0, otherwise `false`.
+ *
+ * @example
+ * ```ts
+ * IsNegative(-3); // true
+ * ```
+ */
 
 export function IsNegative(a: number) : boolean{
     if(a < 0){
@@ -12,12 +37,40 @@ export function IsNegative(a: number) : boolean{
     return false;
 }
 
+/**
+ * Checks whether a number is zero.
+ *
+ * @param a - The number to test.
+ * @returns `true` if a === 0, otherwise `false`.
+ *
+ * @example
+ * ```ts
+ * IsZero(0); // true
+ * ```
+ */
+
 export function IsZero(a: number) : boolean{
     if(a == 0){
         return true;
     }
     return false;
 }
+
+/**
+ * Checks whether two numbers are equal.
+ *
+ * @param a - First number.
+ * @param b - Second number.
+ * @returns `true` if both values are equal.
+ *
+ * @remarks
+ * Uses loose equality logic equivalent to strict numeric equality in practice.
+ *
+ * @example
+ * ```ts
+ * IsEqual(2, 2); // true
+ * ```
+ */
 
 export function IsEqual(a: number, b:number) : boolean{
     if(a == b && b == a){
@@ -26,6 +79,13 @@ export function IsEqual(a: number, b:number) : boolean{
     return false;
 }
 
+/**
+ * Checks whether a is greater than b.
+ *
+ * @param a - First number.
+ * @param b - Second number.
+ * @returns `true` if a > b.
+ */
 
 export function IsGreater(a: number, b:number) : boolean{
     if(a > b){
@@ -34,12 +94,36 @@ export function IsGreater(a: number, b:number) : boolean{
     return false;
 }
 
+/**
+ * Checks whether a is less than b.
+ *
+ * @param a - First number.
+ * @param b - Second number.
+ * @returns `true` if a < b.
+ */
+
 export function IsLess(a: number, b:number) : boolean{
     if(a < b){
         return true;
     }
     return false;
 }
+
+/**
+ * Determines whether a number is prime.
+ *
+ * @param a - Integer to test.
+ * @returns `true` if a is prime.
+ *
+ * @remarks
+ * Uses an optimized trial division method up to √a.
+ *
+ * @example
+ * ```ts
+ * isPrime(7); // true
+ * isPrime(8); // false
+ * ```
+ */
 
 export function isPrime(a: number) : boolean{
 
@@ -64,6 +148,13 @@ return true;
 
 }
 
+/**
+ * Checks whether a number is even.
+ *
+ * @param a - Number to test.
+ * @returns `true` if even.
+ */
+
 export function IsEven(a: number) : boolean{
     if(a % 2 == 0){
         return true;
@@ -71,12 +162,32 @@ export function IsEven(a: number) : boolean{
     return false;
 }
 
+/**
+ * Checks whether a number is odd.
+ *
+ * @param a - Number to test.
+ * @returns `true` if odd.
+ */
+
 export function IsOdd(a: number) : boolean{
     if(a % 2 != 0){
         return true;
     }
     return false;
 }
+
+/**
+ * Checks whether a number is a palindrome when written as a string.
+ *
+ * @param n - Number to test.
+ * @returns `true` if the digit sequence reads the same forward and backward.
+ *
+ * @example
+ * ```ts
+ * isPalindrome(121); // true
+ * isPalindrome(123); // false
+ * ```
+ */
 
 export function isPalindrome(n: number) : boolean {
 

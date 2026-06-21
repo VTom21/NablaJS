@@ -12,6 +12,7 @@ console.log(Nabla.ln(12));
 console.log(Nabla.logCustom(2,32));
 console.log(Nabla.root(16));
 
+
 console.log(Nabla.PI(16))
 console.log(Nabla.EULER(16))
 console.log(Nabla.GOLDEN_RATIO(16))
@@ -143,3 +144,9 @@ const unit = Units();
 const convert = unit.createConverter(unit.magnetic_flux);
 
 console.log(convert(1, "weber", "maxwell")); // 100 cm
+
+console.log(Nabla.XNOR([1,1]));
+console.log(Nabla.sigmoid(1));
+console.log(Nabla.softmax([2.0, 1.0, 0.1]));
+console.log(Nabla.fromPolar(100,200));
+console.log(Nabla.Zeta(2));

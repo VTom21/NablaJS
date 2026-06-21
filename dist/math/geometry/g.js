@@ -1,4 +1,18 @@
 //Two-dimensional shapes
+/**
+ * Provides area and perimeter calculations for a square.
+ *
+ * @returns An object containing:
+ * - area(a): area of a square with side length a
+ * - perimeter(a): perimeter of a square with side length a
+ *
+ * @example
+ * ```ts
+ * const s = Square();
+ * s.area(4); // 16
+ * s.perimeter(4); // 16
+ * ```
+ */
 export function Square() {
     function area(a) {
         return a * a;
@@ -8,6 +22,20 @@ export function Square() {
     }
     return { area, perimeter };
 }
+/**
+ * Provides area and perimeter calculations for a rectangle.
+ *
+ * @returns An object containing:
+ * - area(a, b): area of a rectangle
+ * - perimeter(a, b): perimeter of a rectangle
+ *
+ * @example
+ * ```ts
+ * const r = Rectangle();
+ * r.area(4, 5); // 20
+ * r.perimeter(4, 5); // 18
+ * ```
+ */
 export function Rectangle() {
     function area(a, b) {
         return a * b;
@@ -17,6 +45,21 @@ export function Rectangle() {
     }
     return { area, perimeter };
 }
+/**
+ * Provides geometric properties for a circle.
+ *
+ * @returns An object containing:
+ * - area(r): area of a circle
+ * - diameter(r): diameter of a circle
+ * - circumference(r): circumference of a circle
+ *
+ * @example
+ * ```ts
+ * const c = Circle();
+ * c.area(2);
+ * c.diameter(2); // 4
+ * ```
+ */
 export function Circle() {
     function area(r) {
         return Math.PI * Math.pow(r, 2);
@@ -29,6 +72,19 @@ export function Circle() {
     }
     return { area, diameter, circumference };
 }
+/**
+ * Provides geometric properties for a triangle.
+ *
+ * @returns An object containing:
+ * - area(b, h): triangle area
+ * - perimeter(a, b, c): triangle perimeter
+ *
+ * @example
+ * ```ts
+ * const t = Triangle();
+ * t.area(10, 5); // 25
+ * ```
+ */
 export function Triangle() {
     function area(b, h) {
         return (b * h) / 2;
@@ -38,12 +94,34 @@ export function Triangle() {
     }
     return { area, perimeter };
 }
+/**
+ * Provides area calculation for a trapezoid.
+ *
+ * @returns An object containing:
+ * - area(a, b, h): trapezoid area
+ *
+ * @example
+ * ```ts
+ * Trapezoid().area(2, 4, 3);
+ * ```
+ */
 export function Trapezoid() {
     function area(a, b, h) {
         return ((a + b) / 2) * h;
     }
     return { area };
 }
+/**
+ * Provides area calculation for an ellipse.
+ *
+ * @returns An object containing:
+ * - area(a, b): ellipse area
+ *
+ * @example
+ * ```ts
+ * Ellipse().area(3, 2);
+ * ```
+ */
 export function Ellipse() {
     function area(a, b) {
         return Math.PI * a * b;
@@ -51,12 +129,29 @@ export function Ellipse() {
     return { area };
 }
 //Three-dimensional shapes
+/**
+ * Provides volume calculation for a cube.
+ *
+ * @returns An object containing:
+ * - volume(a): cube volume
+ */
 export function Cube() {
     function volume(a) {
         return Math.pow(a, 3);
     }
     return { volume };
 }
+/**
+ * Provides geometric properties of a cone.
+ *
+ * @returns An object containing:
+ * - volume(r, h): cone volume
+ * - slant_height(r, h): slant height
+ * - surface_area(r, h): surface area
+ *
+ * @remarks
+ * Uses Pythagorean theorem for slant height.
+ */
 export function Cone() {
     function volume(r, h) {
         return 1 / 3 * Math.PI * Math.pow(r, 2) * h;
@@ -71,6 +166,14 @@ export function Cone() {
     }
     return { volume, slant_height, surface_area };
 }
+/**
+ * Provides geometric properties of a cylinder.
+ *
+ * @returns An object containing:
+ * - volume(r, h)
+ * - diameter(r)
+ * - surface_area(r, h)
+ */
 export function Cylinder() {
     function volume(r, h) {
         return Math.PI * Math.pow(r, 2) * h;
@@ -85,6 +188,14 @@ export function Cylinder() {
     }
     return { volume, diameter, surface_area };
 }
+/**
+ * Provides geometric properties of a sphere.
+ *
+ * @returns An object containing:
+ * - volume(r)
+ * - surface_area(r)
+ * - circumference(r)
+ */
 export function Sphere() {
     function volume(r) {
         return 4 / 3 * Math.PI * Math.pow(r, 3);
@@ -97,6 +208,14 @@ export function Sphere() {
     }
     return { volume, surface_area, circumference };
 }
+/**
+ * Provides geometric properties of a cuboid (rectangular prism).
+ *
+ * @returns An object containing:
+ * - volume(l, w, h)
+ * - surface_area(l, w, h)
+ * - diagonal(l, w, h)
+ */
 export function Cuboid() {
     function volume(l, w, h) {
         return l * w * h;
@@ -109,6 +228,16 @@ export function Cuboid() {
     }
     return { volume, surface_area, diagonal };
 }
+/**
+ * Provides properties of a triangular prism.
+ *
+ * @returns An object containing:
+ * - volume(a, b, c, h)
+ * - height(a, b, c, V)
+ *
+ * @remarks
+ * Uses Heron’s formula for triangle area.
+ */
 export function Prism() {
     function volume(a, b, c, h) {
         var left = 1 / 4 * h;
@@ -122,6 +251,13 @@ export function Prism() {
     }
     return { volume, height };
 }
+/**
+ * Provides properties of a regular tetrahedron.
+ *
+ * @returns An object containing:
+ * - volume(a)
+ * - height(l)
+ */
 export function Tetrahedron() {
     function volume(a) {
         return (Math.pow(a, 3)) / (6 * Math.sqrt(2));
@@ -131,9 +267,18 @@ export function Tetrahedron() {
     }
     return { volume, height };
 }
+/**
+ * Provides properties of a hemisphere.
+ *
+ * @returns An object containing:
+ * - volume(r)
+ * - diameter(r)
+ * - surface_area(r)
+ * - cap_area(r)
+ */
 export function Hemisphere() {
     function volume(r) {
-        return Sphere().volume(2) / 2;
+        return Sphere().volume(r) / 2;
     }
     function diameter(r) {
         return r * 2;
@@ -146,6 +291,16 @@ export function Hemisphere() {
     }
     return { volume, diameter, surface_area, cap_area };
 }
+/**
+ * Provides properties of a torus.
+ *
+ * @returns An object containing:
+ * - volume(i, o)
+ * - surface_area(i, o)
+ *
+ * @remarks
+ * i = minor radius, o = major radius (as used in this implementation).
+ */
 export function Torus() {
     function volume(i, o) {
         return (Math.PI * Math.pow(i, 2)) * (2 * Math.PI * o);
@@ -155,12 +310,24 @@ export function Torus() {
     }
     return { volume, surface_area };
 }
+/**
+ * Provides properties of a paraboloid.
+ *
+ * @returns An object containing:
+ * - volume(a, b)
+ */
 export function Paraboloid() {
     function volume(a, b) {
         return 1 / 2 * Math.PI * Math.pow(b, 2) * a;
     }
     return { volume };
 }
+/**
+ * Provides volume calculation for a hyperboloid.
+ *
+ * @returns An object containing:
+ * - volume(a, b, h)
+ */
 export function Hyperboloid() {
     function volume(a, b, h) {
         return Math.PI * h * Math.pow(a, 2) * (1 + (Math.pow(h, 2) / (12 * Math.pow(b, 2))));

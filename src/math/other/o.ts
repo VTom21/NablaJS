@@ -1,3 +1,17 @@
+/**
+ * Clamps a value between a minimum and maximum range.
+ *
+ * @param a - The value to clamp.
+ * @param min - Lower bound.
+ * @param max - Upper bound.
+ * @returns The clamped value.
+ *
+ * @example
+ * ```ts
+ * clamp(10, 0, 5); // 5
+ * ```
+ */
+
 export function clamp(a: number, min: number, max:number){
     if(a > max){
         return max
@@ -8,13 +22,48 @@ export function clamp(a: number, min: number, max:number){
     return a;
 }
 
+/**
+ * Scales a number by a scalar factor.
+ *
+ * @param x - Input value.
+ * @param s - Scale factor.
+ * @returns Scaled value.
+ */
+
 export function scale(x:number, s:number){
     return x * s;
 }
 
+/**
+ * Multiplies each element of a vector by a scalar.
+ *
+ * @param a - Input vector.
+ * @param b - Scalar value.
+ * @returns Scaled vector.
+ *
+ * @example
+ * ```ts
+ * vector_scale([1,2,3], 2); // [2,4,6]
+ * ```
+ */
+
 export function vector_scale(a: number[], b: number): number[] {
   return a.map(element => element * b);
 }
+
+/**
+ * Updates 2D velocity using acceleration over time.
+ *
+ * @param AccelerationX - Acceleration on X axis.
+ * @param AccelerationY - Acceleration on Y axis.
+ * @param VelocityX - Current velocity X.
+ * @param VelocityY - Current velocity Y.
+ * @param dt - Delta time.
+ * @returns Updated velocity vector.
+ *
+ * @remarks
+ * Uses Euler integration: v = v + a * dt
+ */
 
 export function updateVelocity2D(AccelerationX: number, AccelerationY: number, VelocityX: number, VelocityY: number, dt: number): { vx: number; vy: number } {
 
@@ -24,6 +73,19 @@ export function updateVelocity2D(AccelerationX: number, AccelerationY: number, V
   return { vx, vy };
 }
 
+/**
+ * Updates 3D velocity using acceleration over time.
+ *
+ * @param AccelerationX - Acceleration X.
+ * @param AccelerationY - Acceleration Y.
+ * @param AccelerationZ - Acceleration Z.
+ * @param VelocityX - Velocity X.
+ * @param VelocityY - Velocity Y.
+ * @param VelocityZ - Velocity Z.
+ * @param dt - Delta time.
+ * @returns Updated velocity vector.
+ */
+
 export function updateVelocity3D(AccelerationX: number, AccelerationY: number, AccelerationZ: number, VelocityX: number, VelocityY: number,VelocityZ: number, dt: number): { vx: number; vy: number, vz: number } {
     
   const vx = VelocityX + AccelerationX * dt;
@@ -32,6 +94,18 @@ export function updateVelocity3D(AccelerationX: number, AccelerationY: number, A
 
   return { vx, vy, vz };
 }
+
+/**
+ * Moves a point toward a target at a constant speed.
+ *
+ * @param currentX - Current X position.
+ * @param currentY - Current Y position.
+ * @param targetX - Target X position.
+ * @param targetY - Target Y position.
+ * @param speed - Movement speed.
+ * @param dt - Delta time.
+ * @returns New position after movement step.
+ */
 
 export function moveTo(currentX: number,currentY: number,targetX: number,targetY: number,speed: number,dt: number): { x: number; y: number } {
 
@@ -56,6 +130,16 @@ export function moveTo(currentX: number,currentY: number,targetX: number,targetY
   };
 }
 
+/**
+ * Applies linear friction to a velocity vector.
+ *
+ * @param vx - Velocity X.
+ * @param vy - Velocity Y.
+ * @param friction - Friction coefficient.
+ * @param dt - Delta time.
+ * @returns Damped velocity.
+ */
+
 export function ApplyFrictionLinear(vx: number,vy: number,friction: number,dt: number): { vx: number; vy: number } {
 
   const factor = 1 - friction * dt;
@@ -68,6 +152,16 @@ export function ApplyFrictionLinear(vx: number,vy: number,friction: number,dt: n
   };
 }
 
+/**
+ * Applies exponential friction (continuous damping) to velocity.
+ *
+ * @param vx - Velocity X.
+ * @param vy - Velocity Y.
+ * @param friction - Friction coefficient.
+ * @param dt - Delta time.
+ * @returns Damped velocity.
+ */
+
 export function ApplyFrictionExp(vx: number,vy: number,friction: number,dt: number): { vx: number; vy: number } {
 
   const factor = Math.exp(-friction * dt);
@@ -78,28 +172,67 @@ export function ApplyFrictionExp(vx: number,vy: number,friction: number,dt: numb
   };
 }
 
+/**
+ * Resets a velocity vector to zero.
+ *
+ * @returns Zero velocity object.
+ */
+
 export function ResetVelocity() {
   return { vx: 0, vy: 0 };
 }
 
+/**
+ * Generates a random number in [0, 1).
+ */
+
 export function rand(){
     return Math.random();
 }
+
+/**
+ * Generates a random number in a given range.
+ *
+ * @param min - Lower bound.
+ * @param max - Upper bound.
+ */
+
 export function randRange(min:number,max:number){
     return Math.random() * (max - min) + min;
 }
+
+/**
+ * Generates a random integer in [min, max].
+ */
 
 export function randInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * Returns a random boolean value.
+ */
+
 export function randBool() {
   return Math.random() < 0.5;
 }
 
+/**
+ * Returns true with a given probability percentage.
+ *
+ * @param percent - Probability (0–100).
+ */
+
 export function randWeight(percent: number) {
   return Math.random() * 100 < percent;
 }
+
+/**
+ * Generates a random 2D vector with random direction and magnitude.
+ *
+ * @param min - Minimum magnitude.
+ * @param max - Maximum magnitude.
+ */
 
 export function randVector2D(min: number = 1, max: number = 1) {
   const angle = Math.random() * Math.PI * 2;
@@ -111,6 +244,13 @@ export function randVector2D(min: number = 1, max: number = 1) {
     y: Math.sin(angle) * magnitude
   };
 }
+
+/**
+ * Generates a random 3D vector uniformly distributed on a sphere.
+ *
+ * @param min - Minimum magnitude.
+ * @param max - Maximum magnitude.
+ */
 
 export function randVector3D(min: number = 1, max: number = 1) {
   const theta = Math.random() * Math.PI * 2;

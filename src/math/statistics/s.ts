@@ -1,3 +1,16 @@
+
+/**
+ * Computes the arithmetic mean of a dataset.
+ *
+ * @param a - Array of numeric values.
+ * @returns The average (mean) of all values.
+ *
+ * @example
+ * ```ts
+ * average([1, 2, 3, 4]); // 2.5
+ * ```
+ */
+
 export function average(a: number[]) : number{
     let total = 0;
 
@@ -7,6 +20,22 @@ export function average(a: number[]) : number{
 
     return total / a.length;
 }
+
+/**
+ * Computes the mode of a dataset.
+ *
+ * @param a - Array of numeric values.
+ * @returns The value that appears most frequently.
+ *
+ * @remarks
+ * If multiple values share the highest frequency, the first one encountered
+ * is returned.
+ *
+ * @example
+ * ```ts
+ * mode([1, 2, 2, 3]); // 2
+ * ```
+ */
 
 export function mode(a: number[]): number{
 let counts: Record<number, number> = {}
@@ -29,6 +58,22 @@ let counts: Record<number, number> = {}
     return mode
 
 }
+
+/**
+ * Computes the median of a dataset.
+ *
+ * @param a - Array of numeric values.
+ * @returns The middle value, or the average of the two middle values.
+ *
+ * @remarks
+ * The input array is sorted in-place.
+ *
+ * @example
+ * ```ts
+ * median([1, 5, 3]); // 3
+ * median([1, 2, 3, 4]); // 2.5
+ * ```
+ */
 
 export function median(a: number[]) : number{
     var isEven = false; 
@@ -57,14 +102,51 @@ export function median(a: number[]) : number{
     return result;
 }
 
+/**
+ * Calculates what percentage a value represents of a total.
+ *
+ * @param value - Partial value.
+ * @param total - Total value.
+ * @returns Percentage as a string with two decimal places.
+ *
+ * @example
+ * ```ts
+ * percentage(25, 200); // "12.50"
+ * ```
+ */
+
 export function percentage(value: number, total: number){
     return ((value / total) * 100).toFixed(2)
 }
 
+/**
+ * Computes the range of a dataset.
+ *
+ * @param min - Minimum value.
+ * @param max - Maximum value.
+ * @returns Difference between max and min.
+ *
+ * @example
+ * ```ts
+ * range(2, 10); // 8
+ * ```
+ */
 
 export function range(min: number, max: number): number{
     return max - min
 }
+
+/**
+ * Computes population and sample standard deviation.
+ *
+ * @param n - Dataset.
+ * @returns Population and sample standard deviations.
+ *
+ * @example
+ * ```ts
+ * standard_deviation([1,2,3,4]);
+ * ```
+ */
 
 export function standard_deviation(n: number[]){
     let avg = average(n);
@@ -87,6 +169,18 @@ export function standard_deviation(n: number[]){
     };
 }
 
+/**
+ * Computes population and sample variance.
+ *
+ * @param n - Dataset.
+ * @returns Population and sample variances.
+ *
+ * @example
+ * ```ts
+ * variance([1,2,3,4]);
+ * ```
+ */
+
 export function variance(n: number[]){
     let avg = average(n);
     let array = [];
@@ -106,6 +200,23 @@ export function variance(n: number[]){
         sample_variance: total / (n.length - 1)
     }
 }
+
+/**
+ * Computes Pearson's skewness coefficients.
+ *
+ * @param n - Dataset.
+ * @param deviation_type - Either `"sample_deviation"` or `"population_deviation"`.
+ * @returns First and second Pearson skewness coefficients.
+ *
+ * @remarks
+ * Positive values indicate right-skewed distributions, while negative values
+ * indicate left-skewed distributions.
+ *
+ * @example
+ * ```ts
+ * skewness(data, "sample_deviation");
+ * ```
+ */
 
 export function skewness(n : number[], deviation_type: string){
     let avg_value = average(n);
@@ -132,6 +243,22 @@ export function skewness(n : number[], deviation_type: string){
     };
 }
 
+/**
+ * Computes kurtosis and excess kurtosis of a dataset.
+ *
+ * @param n - Dataset.
+ * @returns Kurtosis metrics.
+ *
+ * @remarks
+ * Excess kurtosis compares the distribution against a normal distribution,
+ * which has excess kurtosis equal to 0.
+ *
+ * @example
+ * ```ts
+ * kurtosis(data);
+ * ``
+ */
+
 export function kurtosis(n: number[]) {
     const avg = average(n);
 
@@ -153,6 +280,24 @@ export function kurtosis(n: number[]) {
     };
 }
 
+/**
+ * Computes a percentile value from a dataset.
+ *
+ * @param numbers - Dataset.
+ * @param percentile - Desired percentile (0–100).
+ * @returns Value at the requested percentile position.
+ *
+ * @remarks
+ * This implementation uses a simple index lookup and does not interpolate
+ * between neighboring values.
+ *
+ * @example
+ * ```ts
+ * percentile([1,2,3,4,5], 50); // 3
+ * ```
+ */
+
+
 export function percentile(numbers: number[], percentile: number): number {
   numbers.sort((a, b) => a - b);
 
@@ -161,6 +306,25 @@ export function percentile(numbers: number[], percentile: number): number {
 
   return numbers[index] ?? 0;
 }
+
+/**
+ * Computes the Pearson correlation coefficient between two datasets.
+ *
+ * @param x - First dataset.
+ * @param y - Second dataset.
+ * @returns Correlation coefficient in the range [-1, 1].
+ *
+ * @remarks
+ * Values close to:
+ * - 1 indicate strong positive correlation.
+ * - -1 indicate strong negative correlation.
+ * - 0 indicate little or no linear relationship.
+ *
+ * @example
+ * ```ts
+ * correlation([1,2,3], [2,4,6]); // 1
+ * ```
+ */
 
 export function correlation(x: number[], y: number[]): number {
   const n = x.length;
