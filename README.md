@@ -307,7 +307,7 @@ All geometry functions return an object with methods. Call them as `Shape().meth
 
 ---
 
-## Built-in Plugins (will soon be available in 0.0.2)
+## Built-in Plugins (will soon be available in latest-release)
 
 ```js
 import {Units} from "./dist/plugins.js";
