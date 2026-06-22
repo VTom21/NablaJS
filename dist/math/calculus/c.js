@@ -217,4 +217,58 @@ export function Trigamma(n) {
         return Math.PI ** 2 / 6;
     return Trigamma(n - 1) - 1 / (n - 1) ** 2;
 }
+export function partial(term, variable) {
+    const power = term.variables[variable];
+    if (!power) {
+        return {
+            coefficient: 0,
+            variables: {},
+            full: "0"
+        };
+    }
+    const exponent = power.numerator / power.denominator;
+    const newVariables = structuredClone(term.variables);
+    newVariables[variable] = {
+        numerator: power.numerator - power.denominator,
+        denominator: power.denominator
+    };
+    if (newVariables[variable].numerator === 0) {
+        delete newVariables[variable];
+    }
+    const result = {
+        coefficient: term.coefficient * exponent,
+        variables: newVariables
+    };
+    // 👇 inline "full" construction (no helper function)
+    let full = `${result.coefficient}`;
+    for (const key in result.variables) {
+        const p = result.variables[key];
+        const exp = p.numerator / p.denominator;
+        if (exp === 1) {
+            full += key;
+        }
+        else if (exp !== 0) {
+            full += `${key}^(${p.numerator}/${p.denominator})`;
+        }
+    }
+    return {
+        ...result,
+        full
+    };
+}
+export function gradient2D(termX, termY, x, y) {
+    if (x === undefined || y === undefined) {
+        return {
+            x: termX,
+            y: termY
+        };
+    }
+    const xVarX = termX.variables.x;
+    const yVarX = termX.variables.y;
+    const xVarY = termY.variables.x;
+    const yVarY = termY.variables.y;
+    const dx = termX.coefficient * Math.pow(x, xVarX ? xVarX.numerator / xVarX.denominator : 0) * Math.pow(y, yVarX ? yVarX.numerator / yVarX.denominator : 0);
+    const dy = termY.coefficient * Math.pow(x, xVarY ? xVarY.numerator / xVarY.denominator : 0) * Math.pow(y, yVarY ? yVarY.numerator / yVarY.denominator : 0);
+    return { x: dx, y: dy };
+}
 //# sourceMappingURL=c.js.map

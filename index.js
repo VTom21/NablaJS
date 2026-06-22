@@ -152,3 +152,35 @@ console.log(Nabla.fromPolar(100,200));
 console.log(Nabla.Zeta(2));
 
 console.log(Nabla.poisson(12, 8));
+
+let dx = Nabla.derivative({coefficient: 1, symbol: 'x', power: Nabla.single(1, 2)}) // x^2;
+let dy = Nabla.derivative({coefficient: 1, symbol: 'y', power: Nabla.single(2)}) // y^2;
+
+console.log(dx);
+
+
+let partialX = Nabla.partial(
+    {
+        coefficient: 2,
+        variables: {
+            x: Nabla.single(2),
+            y: Nabla.single(3),
+        }
+    },
+    "x"
+);
+
+let partialY = Nabla.partial(
+    {
+        coefficient: 2,
+        variables: {
+            x: Nabla.single(2),
+            y: Nabla.single(3),
+        }
+    },
+    "y"
+);
+
+console.log(partialX);
+
+console.log(Nabla.gradient2D(partialX, partialY, 3, 2));

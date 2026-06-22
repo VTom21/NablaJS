@@ -8,6 +8,10 @@ export interface Term {
     power: Fraction;
     full: string;
 }
+export interface MultiTerm {
+    coefficient: number;
+    variables: Record<string, Fraction>;
+}
 /**
  * Builds a {@link Fraction} from a single integer (or numerator with
  * an optional denominator), e.g. for whole-number powers.
@@ -128,4 +132,16 @@ export declare function Digamma(n: number): number;
  * ```
  */
 export declare function Trigamma(n: number): number;
+export declare function partial(term: MultiTerm, variable: string): {
+    full: string;
+    coefficient: number;
+    variables: Record<string, Fraction>;
+};
+export declare function gradient2D(termX: MultiTerm, termY: MultiTerm, x?: number, y?: number): {
+    x: MultiTerm;
+    y: MultiTerm;
+} | {
+    x: number;
+    y: number;
+};
 //# sourceMappingURL=c.d.ts.map

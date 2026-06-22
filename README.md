@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/assets/logo.png" alt="Logo" height="150px">
+  <img src="https://raw.githubusercontent.com/Vtom21/NablaJS/main/assets/logo.png" alt="Logo" height="150px">
 </div><br>
 <div align="center">
 <h2>NablaJS</h2>

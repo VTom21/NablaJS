@@ -1,6 +1,6 @@
 {
   "name": "nabla-javascript",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "NablaJS is a lightweight JavaScript math utility library made in TypeScript, embellished to provide fast, austere, and modular tools for game development, alongside mathematical computation.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
