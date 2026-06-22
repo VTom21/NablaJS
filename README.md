@@ -101,6 +101,7 @@ console.log(Nabla.IsGreater(5, 2)); //true
 | `Gamma(n)` | Gamma function Γ(n); generalizes factorials to real numbers |
 | `Digamma(n)` | Digamma function ψ(n); logarithmic derivative of Γ(n) |
 | `Trigamma(n)` | Trigamma function ψ⁽¹⁾(n); derivative of ψ(n) |
+| `Zeta(s, N?)` | Approximates the Riemann zeta function ζ(s) using a finite summation |
 
 #### Collision Detection
 
@@ -196,6 +197,8 @@ All geometry functions return an object with methods. Call them as `Shape().meth
 | `point_line(x, y, A, B, C)` | Distance from a point to a line |
 | `Cramer_Rule(a1, b1, c1, a2, b2, c2)` | Solve a 2×2 system using Cramer's Rule |
 | `lerp(a, b, t)` | Construct new data point using linear interpolation |
+| `toPolar(x, y)` | Converts Cartesian coordinates to polar coordinates  |
+| `fromPolar(r, theta)` | Converts polar coordinates to Cartesian coordinates |
 
 #### Logical Operations
 
@@ -227,6 +230,7 @@ All geometry functions return an object with methods. Call them as `Shape().meth
 | `kurtosis(n)` | Computes kurtosis and excess kurtosis |
 | `percentile(numbers, percentile)` | Returns value at a given percentile |
 | `correlation(x, y)` | Computes Pearson correlation coefficient |
+| `poisson(λ, x)` | Computes the probability of observing exactly x events in a Poisson distribution with mean λ |
 
 ### Trigonometry
 
@@ -279,6 +283,27 @@ All geometry functions return an object with methods. Call them as `Shape().meth
 | `ApplyFrictionLinear(vx, vy, friction, dt)` | Applies linear damping to velocity |
 | `ApplyFrictionExp(vx, vy, friction, dt)` | Applies exponential (physically-based) damping |
 | `ResetVelocity()` | Resets velocity to zero |
+
+
+#### Machine Learning / Neural Networks
+
+| Function | Description |
+|---|---|
+| `sigmoid(x)` | Computes the sigmoid activation function σ(x) |
+| `softmax(a)` | Converts a vector of scores into a normalized probability distribution |
+
+#### Boolean Algebra
+
+| Function | Description |
+|---|---|
+| `AND(gate)` | Logical AND gate for multiple binary inputs |
+| `OR(gate)` | Logical OR gate for multiple binary inputs |
+| `NOT(gate)` | Logical NOT gate |
+| `BUFFER(gate)` | Passes a binary input through unchanged |
+| `NAND(gate)` | Logical NAND gate |
+| `NOR(gate)` | Logical NOR gate |
+| `XOR(gate)` | Logical exclusive OR gate |
+| `XNOR(gate)` | Logical exclusive NOR gate |
 
 ---
 

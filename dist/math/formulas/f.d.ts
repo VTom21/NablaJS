@@ -96,7 +96,90 @@ export declare function summation(n: number): number;
  * ```
  */
 export declare function signum(x: number): number;
+/**
+ * Computes the sigmoid (logistic) activation function.
+ *
+ * @param x - Input value.
+ * @returns The sigmoid-transformed value in the range (0, 1).
+ *
+ * @remarks
+ * The sigmoid function maps any real number to a value between 0 and 1.
+ * It is commonly used in machine learning, neural networks, and logistic
+ * regression to represent probabilities.
+ *
+ * Formula:
+ * σ(x) = 1 / (1 + e^-x)
+ *
+ * @example
+ * ```ts
+ * sigmoid(0); // 0.5
+ * ```
+ *
+ * @example
+ * ```ts
+ * sigmoid(2); // ≈ 0.8808
+ * ```
+ */
 export declare function sigmoid(x: number): number;
+/**
+ * Computes the softmax transformation of a vector.
+ *
+ * @param a - Array of input values.
+ * @returns An array of normalized probabilities whose sum equals 1.
+ *
+ * @remarks
+ * Softmax converts a set of real-valued scores into a probability
+ * distribution. Larger input values receive higher probabilities while
+ * preserving relative differences between inputs.
+ *
+ * Formula:
+ * softmax(xᵢ) = e^(xᵢ) / Σ(e^(xⱼ))
+ *
+ * This implementation directly computes exponentials and may experience
+ * numerical instability for very large input values.
+ *
+ * @example
+ * ```ts
+ * softmax([1, 2, 3]);
+ * // ≈ [0.0900, 0.2447, 0.6652]
+ * ```
+ *
+ * @example
+ * ```ts
+ * softmax([0, 0, 0]);
+ * // [0.3333, 0.3333, 0.3333]
+ * ```
+ */
 export declare function softmax(a: number[]): number[];
+/**
+ * Approximates the Riemann zeta function using a finite series.
+ *
+ * @param s - Exponent parameter of the zeta function.
+ * @param N - Number of terms used in the approximation. Defaults to 100000.
+ * @returns An approximation of ζ(s).
+ *
+ * @remarks
+ * The Riemann zeta function is defined as:
+ *
+ * ζ(s) = Σ(1 / n^s)
+ *
+ * for n = 1 to ∞.
+ *
+ * This implementation truncates the infinite series after `N` terms,
+ * providing an approximation that becomes more accurate as `N` increases.
+ * The series converges for values of `s > 1`.
+ *
+ * @example
+ * ```ts
+ * Zeta(2);
+ * // ≈ 1.644934
+ * ```
+ *
+ * @example
+ * ```ts
+ * Zeta(3);
+ * // ≈ 1.202057
+ * ```
+ */
 export declare function Zeta(s: number, N?: number): number;
 //# sourceMappingURL=f.d.ts.map

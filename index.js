@@ -150,3 +150,5 @@ console.log(Nabla.sigmoid(1));
 console.log(Nabla.softmax([2.0, 1.0, 0.1]));
 console.log(Nabla.fromPolar(100,200));
 console.log(Nabla.Zeta(2));
+
+console.log(Nabla.poisson(12, 8));

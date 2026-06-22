@@ -1,4 +1,4 @@
-
+import { factorial } from "../formulas/f.js";
 /**
  * Computes the arithmetic mean of a dataset.
  *
@@ -346,4 +346,37 @@ export function correlation(x: number[], y: number[]): number {
   }
 
   return numerator / Math.sqrt(denomX * denomY);
+}
+
+/**
+ * Computes the probability mass of a Poisson-distributed random variable.
+ *
+ * @param u - Expected number of occurrences (λ), must be non-negative.
+ * @param x - Number of occurrences to evaluate, typically a non-negative integer.
+ * @returns The probability of observing exactly `x` occurrences.
+ *
+ * @remarks
+ * The Poisson distribution models the probability of a given number of events
+ * occurring in a fixed interval of time or space when events occur
+ * independently and at a constant average rate.
+ *
+ * Formula:
+ * P(X = x) = (λ^x * e^-λ) / x!
+ *
+ * @example
+ * ```ts
+ * poisson(3, 2); // ≈ 0.22404180765538775
+ * ```
+ *
+ * @example
+ * ```ts
+ * poisson(5, 5); // ≈ 0.1754673697678507
+ * ```
+ */
+
+export function poisson(u: number, x: number){
+    let numerator = (u ** x) * Math.pow(Math.E, -u);
+    let denominator = factorial(x);
+
+    return numerator / denominator;
 }

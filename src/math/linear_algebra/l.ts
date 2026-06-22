@@ -206,12 +206,72 @@ export function lerp(a:number, b:number, t:number){
     return a + (b - a) * t;
 }
 
+/**
+ * Converts Cartesian coordinates to polar coordinates.
+ *
+ * @param x - X-coordinate.
+ * @param y - Y-coordinate.
+ * @returns An object containing the radius (`r`) and angle (`theta`) in degrees.
+ *
+ * @remarks
+ * Polar coordinates represent a point using its distance from the origin
+ * and its angle relative to the positive x-axis.
+ *
+ * Formulas:
+ * r = √(x² + y²)
+ * θ = atan2(y, x)
+ *
+ * The returned angle is expressed in degrees.
+ *
+ * @example
+ * ```ts
+ * toPolar(3, 4);
+ * // { r: 5, theta: 53.13010235415598 }
+ * ```
+ *
+ * @example
+ * ```ts
+ * toPolar(-1, 1);
+ * // { r: 1.4142..., theta: 135 }
+ * ```
+ */
+
 export function toPolar(x:number, y:number){
     let r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     let theta = Math.atan2(y, x) * (180 / Math.PI);
 
     return {r,theta}
 }
+
+/**
+ * Converts polar coordinates to Cartesian coordinates.
+ *
+ * @param r - Distance from the origin (radius).
+ * @param theta - Angle in degrees measured from the positive x-axis.
+ * @returns An object containing the Cartesian coordinates (`x`, `y`).
+ *
+ * @remarks
+ * Cartesian coordinates represent a point using horizontal and vertical
+ * distances from the origin.
+ *
+ * Formulas:
+ * x = r cos(θ)
+ * y = r sin(θ)
+ *
+ * The input angle is expected to be in degrees.
+ *
+ * @example
+ * ```ts
+ * fromPolar(5, 53.13010235415598);
+ * // { x: 3, y: 4 }
+ * ```
+ *
+ * @example
+ * ```ts
+ * fromPolar(10, 90);
+ * // { x: 0, y: 10 }
+ * ```
+ */
 
 export function fromPolar(r: number, theta: number){
     let x = r * Math.cos(theta * (Math.PI / 180));

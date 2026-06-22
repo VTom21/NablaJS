@@ -47,7 +47,7 @@ export declare function Pythagorean(a: number, b: number, c: number): number | u
  * discriminant(1, 2, 5);  // 1 — no real roots (complex), despite the label
  * ```
  */
-export declare function discriminant(a: number, b: number, c: number): 2 | 0 | 1 | undefined;
+export declare function discriminant(a: number, b: number, c: number): 1 | 0 | 2 | undefined;
 /**
  * Solves `ax² + bx + c = 0` for both roots using the quadratic formula.
  *
