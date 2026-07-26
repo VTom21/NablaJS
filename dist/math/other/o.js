@@ -43,7 +43,7 @@ export function scale(x, s) {
  * ```
  */
 export function vector_scale(a, b) {
-    return a.map(element => element * b);
+    return a.map((element) => element * b);
 }
 /**
  * Updates 2D velocity using acceleration over time.
@@ -105,7 +105,7 @@ export function moveTo(currentX, currentY, targetX, targetY, speed, dt) {
     const moveY = dirY * speed * dt;
     return {
         x: currentX + moveX,
-        y: currentY + moveY
+        y: currentY + moveY,
     };
 }
 /**
@@ -122,7 +122,7 @@ export function ApplyFrictionLinear(vx, vy, friction, dt) {
     const clampedFactor = Math.max(0, factor);
     return {
         vx: vx * clampedFactor,
-        vy: vy * clampedFactor
+        vy: vy * clampedFactor,
     };
 }
 /**
@@ -138,7 +138,7 @@ export function ApplyFrictionExp(vx, vy, friction, dt) {
     const factor = Math.exp(-friction * dt);
     return {
         vx: vx * factor,
-        vy: vy * factor
+        vy: vy * factor,
     };
 }
 /**
@@ -195,7 +195,7 @@ export function randVector2D(min = 1, max = 1) {
     const magnitude = Math.random() * (max - min) + min;
     return {
         x: Math.cos(angle) * magnitude,
-        y: Math.sin(angle) * magnitude
+        y: Math.sin(angle) * magnitude,
     };
 }
 /**
@@ -211,7 +211,145 @@ export function randVector3D(min = 1, max = 1) {
     return {
         x: Math.sin(phi) * Math.cos(theta) * magnitude,
         y: Math.sin(phi) * Math.sin(theta) * magnitude,
-        z: Math.cos(phi) * magnitude
+        z: Math.cos(phi) * magnitude,
+    };
+}
+/*
+
+switch(e.key){
+
+  case "KeyW": <= -Y
+    VelocityX = 0;
+    VelocityY = -1;
+    break;
+  case "KeyA": <= -X
+    VelocityX = -1;
+    VelocityY = 0;
+    break;
+  case "KeyS": <= +Y
+    VelocityX = 0;
+    VelocityY = 1;
+    break;
+  case "KeyD": <= +X
+    VelocityX = 1;
+    VelocityY = 0;
+    break;
+
+}
+
+
+
+
+*/
+export function Controls(preset) {
+    let e;
+    let VelocityX = 0;
+    let VelocityY = 0;
+    if (preset == "WASD") {
+        document.addEventListener("keydown", (e) => {
+            switch (e.code) {
+                case "KeyW":
+                    VelocityX = 0;
+                    VelocityY = -1;
+                    break;
+                case "KeyA":
+                    VelocityX = -1;
+                    VelocityY = 0;
+                    break;
+                case "KeyS":
+                    VelocityX = 0;
+                    VelocityY = 1;
+                    break;
+                case "KeyD":
+                    VelocityX = 1;
+                    VelocityY = 0;
+                    break;
+            }
+        });
+    }
+    else if (preset == "ARROWS") {
+        document.addEventListener("keydown", (e) => {
+            switch (e.key) {
+                case "ArrowUp":
+                    VelocityX = 0;
+                    VelocityY = -1;
+                    break;
+                case "ArrowLeft":
+                    VelocityX = -1;
+                    VelocityY = 0;
+                    break;
+                case "ArrowRight":
+                    VelocityX = 1;
+                    VelocityY = 0;
+                    break;
+                case "ArrowDown":
+                    VelocityX = 0;
+                    VelocityY = 1;
+                    break;
+            }
+        });
+    }
+    else if (preset == "ARROWS-INVERSE") {
+        document.addEventListener("keydown", (e) => {
+            switch (e.key) {
+                case "ArrowUp":
+                    VelocityX = 0;
+                    VelocityY = 1;
+                    break;
+                case "ArrowLeft":
+                    VelocityX = 1;
+                    VelocityY = 0;
+                    break;
+                case "ArrowRight":
+                    VelocityX = -1;
+                    VelocityY = 0;
+                    break;
+                case "ArrowDown":
+                    VelocityX = 0;
+                    VelocityY = -1;
+                    break;
+            }
+        });
+    }
+    else if (preset == "WASD-INVERSE") {
+        document.addEventListener("keydown", (e) => {
+            switch (e.code) {
+                case "KeyW":
+                    VelocityX = 0;
+                    VelocityY = 1;
+                    break;
+                case "KeyA":
+                    VelocityX = 1;
+                    VelocityY = 0;
+                    break;
+                case "KeyS":
+                    VelocityX = 0;
+                    VelocityY = -1;
+                    break;
+                case "KeyD":
+                    VelocityX = -1;
+                    VelocityY = 0;
+                    break;
+            }
+        });
+    }
+    return {
+        getVelocity() {
+            return {
+                VelocityX,
+                VelocityY
+            };
+        },
+        getX() {
+            return {
+                VelocityX
+            };
+        },
+        getY() {
+            return {
+                VelocityY
+            };
+        }
     };
 }
 //# sourceMappingURL=o.js.map

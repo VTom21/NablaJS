@@ -188,4 +188,125 @@ export function Units(nabla) {
     }
     return { createConverter, length, mass, volume, area, temperature, pressure, angles, illuminance, time, charge, resistance, magnetic_flux };
 }
+export class Vector2 {
+    x;
+    y;
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    array() {
+        return [this.x, this.y];
+    }
+    add(vector) {
+        this.x += vector.x;
+        this.y += vector.y;
+        return this;
+    }
+    subtract(vector) {
+        this.x -= vector.x;
+        this.y -= vector.y;
+        return this;
+    }
+    multiply(vector) {
+        this.x *= vector.x;
+        this.y *= vector.y;
+        return this;
+    }
+    divide(vector) {
+        this.x /= vector.x;
+        this.y /= vector.y;
+        return this;
+    }
+}
+export class Vector3 {
+    x;
+    y;
+    z;
+    constructor(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    array() {
+        return [this.x, this.y, this.z];
+    }
+    add(vector) {
+        this.x += vector.x;
+        this.y += vector.y;
+        this.z += vector.z;
+        return this;
+    }
+    subtract(vector) {
+        this.x -= vector.x;
+        this.y -= vector.y;
+        this.z -= vector.z;
+        return this;
+    }
+    multiply(vector) {
+        this.x *= vector.x;
+        this.y *= vector.y;
+        this.z *= vector.z;
+        return this;
+    }
+    divide(vector) {
+        this.x /= vector.x;
+        this.y /= vector.y;
+        this.z /= vector.z;
+        return this;
+    }
+}
+export class Engine {
+    fps;
+    canvas;
+    running = false;
+    ctx;
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext("2d");
+    }
+    start(callback, fps = 60) {
+        this.running = true;
+        const interval = 1000 / fps;
+        let lastTime = 0;
+        const loop = (time) => {
+            if (!this.running)
+                return;
+            if (time - lastTime >= interval) {
+                lastTime = time;
+                callback();
+            }
+            requestAnimationFrame(loop);
+        };
+        requestAnimationFrame(loop);
+    }
+    stop() {
+        this.running = false;
+    }
+    drawRect(x, y, w, h, color = "black") {
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(x, y, w, h);
+    }
+    clearRect(x, y, w, h) {
+        this.ctx.clearRect(x, y, w, h);
+    }
+    clear(color) {
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    drawLine(x1, y1, x2, y2, color = "black", width = 1) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x1, y1);
+        this.ctx.lineTo(x2, y2);
+        this.ctx.strokeStyle = color;
+        this.ctx.lineWidth = width;
+        this.ctx.stroke();
+    }
+    drawCircle(x, y, radius, color = "black") {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, radius, 0, Math.PI * 2);
+        this.ctx.fillStyle = color;
+        this.ctx.fill();
+    }
+}
 //# sourceMappingURL=plugins.js.map

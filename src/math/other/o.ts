@@ -12,14 +12,14 @@
  * ```
  */
 
-export function clamp(a: number, min: number, max:number){
-    if(a > max){
-        return max
-    }
-    if(a < min){
-        return min
-    }
-    return a;
+export function clamp(a: number, min: number, max: number) {
+  if (a > max) {
+    return max;
+  }
+  if (a < min) {
+    return min;
+  }
+  return a;
 }
 
 /**
@@ -30,8 +30,8 @@ export function clamp(a: number, min: number, max:number){
  * @returns Scaled value.
  */
 
-export function scale(x:number, s:number){
-    return x * s;
+export function scale(x: number, s: number) {
+  return x * s;
 }
 
 /**
@@ -48,7 +48,7 @@ export function scale(x:number, s:number){
  */
 
 export function vector_scale(a: number[], b: number): number[] {
-  return a.map(element => element * b);
+  return a.map((element) => element * b);
 }
 
 /**
@@ -65,8 +65,13 @@ export function vector_scale(a: number[], b: number): number[] {
  * Uses Euler integration: v = v + a * dt
  */
 
-export function updateVelocity2D(AccelerationX: number, AccelerationY: number, VelocityX: number, VelocityY: number, dt: number): { vx: number; vy: number } {
-
+export function updateVelocity2D(
+  AccelerationX: number,
+  AccelerationY: number,
+  VelocityX: number,
+  VelocityY: number,
+  dt: number,
+): { vx: number; vy: number } {
   const vx = VelocityX + AccelerationX * dt;
   const vy = VelocityY + AccelerationY * dt;
 
@@ -86,8 +91,15 @@ export function updateVelocity2D(AccelerationX: number, AccelerationY: number, V
  * @returns Updated velocity vector.
  */
 
-export function updateVelocity3D(AccelerationX: number, AccelerationY: number, AccelerationZ: number, VelocityX: number, VelocityY: number,VelocityZ: number, dt: number): { vx: number; vy: number, vz: number } {
-    
+export function updateVelocity3D(
+  AccelerationX: number,
+  AccelerationY: number,
+  AccelerationZ: number,
+  VelocityX: number,
+  VelocityY: number,
+  VelocityZ: number,
+  dt: number,
+): { vx: number; vy: number; vz: number } {
   const vx = VelocityX + AccelerationX * dt;
   const vy = VelocityY + AccelerationY * dt;
   const vz = VelocityZ + AccelerationZ * dt;
@@ -107,8 +119,14 @@ export function updateVelocity3D(AccelerationX: number, AccelerationY: number, A
  * @returns New position after movement step.
  */
 
-export function moveTo(currentX: number,currentY: number,targetX: number,targetY: number,speed: number,dt: number): { x: number; y: number } {
-
+export function moveTo(
+  currentX: number,
+  currentY: number,
+  targetX: number,
+  targetY: number,
+  speed: number,
+  dt: number,
+): { x: number; y: number } {
   const dx = targetX - currentX;
   const dy = targetY - currentY;
 
@@ -126,7 +144,7 @@ export function moveTo(currentX: number,currentY: number,targetX: number,targetY
 
   return {
     x: currentX + moveX,
-    y: currentY + moveY
+    y: currentY + moveY,
   };
 }
 
@@ -140,15 +158,19 @@ export function moveTo(currentX: number,currentY: number,targetX: number,targetY
  * @returns Damped velocity.
  */
 
-export function ApplyFrictionLinear(vx: number,vy: number,friction: number,dt: number): { vx: number; vy: number } {
-
+export function ApplyFrictionLinear(
+  vx: number,
+  vy: number,
+  friction: number,
+  dt: number,
+): { vx: number; vy: number } {
   const factor = 1 - friction * dt;
 
   const clampedFactor = Math.max(0, factor);
 
   return {
     vx: vx * clampedFactor,
-    vy: vy * clampedFactor
+    vy: vy * clampedFactor,
   };
 }
 
@@ -162,13 +184,17 @@ export function ApplyFrictionLinear(vx: number,vy: number,friction: number,dt: n
  * @returns Damped velocity.
  */
 
-export function ApplyFrictionExp(vx: number,vy: number,friction: number,dt: number): { vx: number; vy: number } {
-
+export function ApplyFrictionExp(
+  vx: number,
+  vy: number,
+  friction: number,
+  dt: number,
+): { vx: number; vy: number } {
   const factor = Math.exp(-friction * dt);
 
   return {
     vx: vx * factor,
-    vy: vy * factor
+    vy: vy * factor,
   };
 }
 
@@ -186,8 +212,8 @@ export function ResetVelocity() {
  * Generates a random number in [0, 1).
  */
 
-export function rand(){
-    return Math.random();
+export function rand() {
+  return Math.random();
 }
 
 /**
@@ -197,8 +223,8 @@ export function rand(){
  * @param max - Upper bound.
  */
 
-export function randRange(min:number,max:number){
-    return Math.random() * (max - min) + min;
+export function randRange(min: number, max: number) {
+  return Math.random() * (max - min) + min;
 }
 
 /**
@@ -241,7 +267,7 @@ export function randVector2D(min: number = 1, max: number = 1) {
 
   return {
     x: Math.cos(angle) * magnitude,
-    y: Math.sin(angle) * magnitude
+    y: Math.sin(angle) * magnitude,
   };
 }
 
@@ -261,6 +287,151 @@ export function randVector3D(min: number = 1, max: number = 1) {
   return {
     x: Math.sin(phi) * Math.cos(theta) * magnitude,
     y: Math.sin(phi) * Math.sin(theta) * magnitude,
-    z: Math.cos(phi) * magnitude
+    z: Math.cos(phi) * magnitude,
   };
 }
+
+/* 
+
+switch(e.key){
+
+  case "KeyW": <= -Y
+    VelocityX = 0;
+    VelocityY = -1;
+    break;
+  case "KeyA": <= -X
+    VelocityX = -1;
+    VelocityY = 0;
+    break;
+  case "KeyS": <= +Y
+    VelocityX = 0;
+    VelocityY = 1;
+    break;
+  case "KeyD": <= +X
+    VelocityX = 1;
+    VelocityY = 0;
+    break; 
+
+}
+
+
+
+
+*/
+
+export function Controls(preset: string) {
+  let e: KeyboardEvent;
+  let VelocityX = 0;
+  let VelocityY = 0;
+
+  if (preset == "WASD") {
+    document.addEventListener("keydown", (e) => {
+      switch (e.code) {
+        case "KeyW":
+          VelocityX = 0;
+          VelocityY = -1;
+          break;
+        case "KeyA":
+          VelocityX = -1;
+          VelocityY = 0;
+          break;
+        case "KeyS":
+          VelocityX = 0;
+          VelocityY = 1;
+          break;
+        case "KeyD":
+          VelocityX = 1;
+          VelocityY = 0;
+          break;
+      }
+    });
+  } else if (preset == "ARROWS") {
+    document.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "ArrowUp":
+          VelocityX = 0;
+          VelocityY = -1;
+          break;
+        case "ArrowLeft":
+          VelocityX = -1;
+          VelocityY = 0;
+          break;
+        case "ArrowRight":
+          VelocityX = 1;
+          VelocityY = 0;
+          break;
+        case "ArrowDown":
+          VelocityX = 0;
+          VelocityY = 1;
+          break;
+      }
+    });
+  }
+
+  else if (preset == "ARROWS-INVERSE") {
+    document.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "ArrowUp":
+          VelocityX = 0;
+          VelocityY = 1;
+          break;
+        case "ArrowLeft":
+          VelocityX = 1;
+          VelocityY = 0;
+          break;
+        case "ArrowRight":
+          VelocityX = -1;
+          VelocityY = 0;
+          break;
+        case "ArrowDown":
+          VelocityX = 0;
+          VelocityY = -1;
+          break;
+      }
+    });
+  }
+
+  else if (preset == "WASD-INVERSE") {
+    document.addEventListener("keydown", (e) => {
+      switch (e.code) {
+        case "KeyW":
+          VelocityX = 0;
+          VelocityY = 1;
+          break;
+        case "KeyA":
+          VelocityX = 1;
+          VelocityY = 0;
+          break;
+        case "KeyS":
+          VelocityX = 0;
+          VelocityY = -1;
+          break;
+        case "KeyD":
+          VelocityX = -1;
+          VelocityY = 0;
+          break;
+      }
+    });
+  }
+
+
+  return {
+    getVelocity(){
+      return {
+          VelocityX,
+          VelocityY
+      }
+    },
+    getX(){
+      return {
+        VelocityX
+      }
+    },
+    getY(){
+      return {
+        VelocityY
+      }
+    }
+  }
+}
+

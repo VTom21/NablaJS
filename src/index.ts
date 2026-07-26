@@ -8,7 +8,7 @@ export {Sin, Cos, Tan, Cot, Sec, Csc, SinH, CosH, TanH, CotH, SecH, CscH, Cosine
 export {Square, Rectangle, Circle, Triangle, Trapezoid, Ellipse, Cube, Cone, Cylinder, Sphere, Cuboid, Prism, Tetrahedron, Hemisphere, Torus, Hyperboloid} from "./math/geometry/g.js"
 export {Dot_Product,Cross_Product, Matrix_Add,Matrix_Subtract, Matrix_Divide, magnitude, point_line, Cramer_Rule, lerp, toPolar, fromPolar} from "./math/linear_algebra/l.js"
 export {Euclidean_Distance, Manhattan_Distance, Cosine_Similarity, Chessboard_Distance} from "./math/distance_metrics/d.js"
-export {clamp, updateVelocity2D, updateVelocity3D, scale, vector_scale, moveTo, ApplyFrictionLinear, ApplyFrictionExp,ResetVelocity, rand, randBool, randInt, randRange, randVector2D, randVector3D, randWeight } from "./math/other/o.js"
+export {clamp, updateVelocity2D, updateVelocity3D, scale, vector_scale, moveTo, ApplyFrictionLinear, ApplyFrictionExp,ResetVelocity, rand, randBool, randInt, randRange, randVector2D, randVector3D, randWeight, Controls } from "./math/other/o.js"
 export {Pythagorean, midpoint, discriminant, quadratic, slope} from "./math/algebra/a.js"
 export {Symbols, parse, substitute} from "./math/symbols/s.js"
 export {integrate, single, derivative, Gamma, Digamma, Trigamma, partial, gradient2D} from "./math/calculus/c.js"

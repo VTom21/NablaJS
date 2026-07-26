@@ -209,3 +209,171 @@ export function Units(nabla: any) {
 
   return {createConverter, length, mass, volume, area, temperature, pressure, angles, illuminance, time, charge, resistance, magnetic_flux}
 }
+
+export class Vector2 {
+
+    public x: number
+    public y: number
+
+
+    constructor(x:number, y:number){
+      this.x = x;
+      this.y = y;
+    }
+
+    array() {
+        return [this.x, this.y];
+    }
+
+    add(vector: Vector2){
+      this.x += vector.x;
+      this.y += vector.y;
+
+      return this;
+    }
+
+    subtract(vector: Vector2){
+      this.x -= vector.x;
+      this.y -= vector.y;
+
+      return this;
+    }
+
+    multiply(vector: Vector2){
+      this.x *= vector.x;
+      this.y *= vector.y;
+
+      return this;
+    }
+
+    divide(vector: Vector2){
+      this.x /= vector.x;
+      this.y /= vector.y;
+
+      return this;
+    }
+} 
+
+
+
+export class Vector3 {
+
+    public x: number
+    public y: number
+    public z: number
+
+    constructor(x:number, y:number, z:number){
+      this.x = x;
+      this.y = y;
+      this.z = z;
+    }
+
+    array() {
+        return [this.x, this.y, this.z];
+    }
+
+    add(vector: Vector3){
+      this.x += vector.x;
+      this.y += vector.y;
+      this.z += vector.z;
+
+      return this;
+    }
+
+    subtract(vector: Vector3){
+      this.x -= vector.x;
+      this.y -= vector.y;
+      this.z -= vector.z;
+
+      return this;
+    }
+
+    multiply(vector: Vector3){
+      this.x *= vector.x;
+      this.y *= vector.y;
+      this.z *= vector.z;
+
+      return this;
+    }
+
+    divide(vector: Vector3){
+      this.x /= vector.x;
+      this.y /= vector.y;
+      this.z /= vector.z;
+      return this;
+    }
+} 
+
+
+export class Engine {
+      public fps: any
+      public canvas: HTMLCanvasElement
+      public running = false;
+      public ctx: CanvasRenderingContext2D
+
+      constructor(canvas: HTMLCanvasElement){
+        this.canvas = canvas
+        this.ctx = canvas.getContext("2d")!
+      }
+
+      start(callback: () => void, fps:number = 60){
+        this.running = true;
+
+        const interval = 1000 / fps;
+        let lastTime = 0;
+
+          const loop = (time: number) => {
+
+            if(!this.running) return;
+
+            if (time - lastTime >= interval) {
+                lastTime = time;
+                callback();
+            }
+
+            requestAnimationFrame(loop);
+          }; 
+          requestAnimationFrame(loop);
+      }
+
+      stop(){
+        this.running = false;
+      }
+
+      drawRect(x:number, y:number, w:number, h:number, color:string = "black"){
+        this.ctx.fillStyle = color
+        this.ctx.fillRect(x, y, w, h);
+      }
+
+      clearRect(x:number, y:number, w:number, h:number){
+        this.ctx.clearRect(x, y, w, h);
+      }
+
+
+      clear(color: string) {
+          this.ctx.fillStyle = color;
+          this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+
+      drawLine(x1: number, y1: number, x2: number, y2: number, color = "black", width = 1) {
+        this.ctx.beginPath();
+
+        this.ctx.moveTo(x1, y1);
+        this.ctx.lineTo(x2, y2);
+
+        this.ctx.strokeStyle = color;
+        this.ctx.lineWidth = width;
+
+        this.ctx.stroke();
+    }
+
+    drawCircle(x: number, y: number, radius: number, color = "black") {
+    this.ctx.beginPath();
+
+    this.ctx.arc(x, y, radius, 0, Math.PI * 2);
+
+    this.ctx.fillStyle = color;
+    this.ctx.fill();
+  }
+
+}

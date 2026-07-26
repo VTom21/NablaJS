@@ -1,6 +1,5 @@
 import * as Nabla from "./dist/index.js";
-import {Units} from "./dist/plugins.js";
-
+import {Engine, Units, Vector2, Vector3} from "./dist/plugins.js";
 
 console.log(Nabla.IsGreater(5, 2));
 console.log(Nabla.IsLess(2, 5));
@@ -184,3 +183,31 @@ let partialY = Nabla.partial(
 console.log(partialX);
 
 console.log(Nabla.gradient2D(partialX, partialY, 3, 2));
+
+
+
+
+let vec = new Vector2(100, 50);
+let vec2 = vec.add(new Vector2(11, 15));
+
+
+let vec3 = new Vector3(100,101,102);
+let vecc = vec3.add(new Vector3(11,11,11));
+
+
+console.log(vecc);
+
+let canv = document.getElementById("canvas");
+
+canv.width = 800;
+canv.height = 800;
+
+let engine = new Engine(canv);
+
+let xx = 1;
+
+
+engine.start(() =>{
+    console.log(xx++);
+}, 100)
+

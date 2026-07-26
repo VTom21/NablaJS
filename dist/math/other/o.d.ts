@@ -163,4 +163,16 @@ export declare function randVector3D(min?: number, max?: number): {
     y: number;
     z: number;
 };
+export declare function Controls(preset: string): {
+    getVelocity(): {
+        VelocityX: number;
+        VelocityY: number;
+    };
+    getX(): {
+        VelocityX: number;
+    };
+    getY(): {
+        VelocityY: number;
+    };
+};
 //# sourceMappingURL=o.d.ts.map
